@@ -1,10 +1,9 @@
-Simplecoin Web Mining Framework
+SimpleLTC Web Mining Framework
 
 Requirements:
-Simplecoin relies on an existing and working bitcoin and pushpool installation. Before attempting to run simplecoin, please setup the following.
-Bitcoin: bitcoin.org
-Pushpool: http://forum.bitcoin.org/index.php?topic=8707.0
-
+SimpleLTC relies on an existing and working litecoin and pushpool installation. Before attempting to run simplecoin, please setup the following.
+Litecoin: https://litecoin.org/
+Pushpool: https://github.com/ArtForz/pushpool
 
 Installation:
 1. Extract files into web root directory
@@ -13,6 +12,8 @@ Installation:
 4. Edit includes/requiredFunctions.php and set the bitcoin & database login info
 5. Edit all files in the cronjob folder, set $includesDirectory to the correct server path.
 6. setup cronjobs on a staggered schedule. I recommend 10-30 minutes for most. I run payout twice daily.
+
+This fork makes aesthetic changes to make the interface LTC friendly, and tweaks the hashrate algorithm accordingly.
 
 This project is the culmination of creation and contribution by the following Authors:
 Mike Allison (Simplecoin base): dj.mikeallison@gmail.com : 163Pv9cUDJTNUbadV4HMRQSSj3ipwLURRc
