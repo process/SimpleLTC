@@ -82,22 +82,22 @@ else $pageTitle = outputPageTitle(). " ". $pageTitle;
 			<table cellspacing="0" border="0" cellpadding="0" width="100%" style="width:100%; background-color:#172322; text-align:left;color: #FFF; left-margin: 5px"></body>
 				<tr>
 					<td>Pool</td>
-					<td>Hashrate: <?php print round($stats->currenthashrate()/1000,1); ?> GH/s</td>
+					<td>Hashrate: <?php print round($stats->currenthashrate()/1000,1); ?> MH/s</td>
 					<td>Workers: <?php print $stats->currentworkers(); ?></td>
 					<?php if ($cookieValid) {	?>
 					<td>Round Shares: <?php echo $stats->currentshares();?></td>
 					<?php } ?>
 					<td>Server Load: <?php print $stats->get_server_load(); ?></td>
-					<td><a href="http://www.mtgox.com" target="_blank" style="color: #FFF">MtGox (USD):</a> $<?php print $stats->mtgoxlast(); ?></td>					
+					<td><a href="https://www.btc-e.com" target="_blank" style="color: #FFF">BTC-e (LTC->USD):</a> $<?php print $stats->mtgoxlast(); ?></td>					
 				</tr>
 				<?php if ($cookieValid) {	?>				
 				<tr>					
 					<td><?php echo $userInfo->username; ?> <a href="/logout.php" style="color: #FFF"><span style="font-size:small">(logout)</span></a></td>
-					<td>Hashrate: <?php print $stats->userhashrate($userInfo->username); ?> MH/s</td>
+					<td>Hashrate: <?php print $stats->userhashrate($userInfo->username); ?> KH/s</td>
 					<td>Workers: <?php echo count($stats->workers($userInfo->id)); ?></td>
 					<td>Round Shares: <?php echo $totalUserShares; ?> (<?php echo round(($stats->userstalecount($userId) / $totalUserShares * 100),1); ?>% stale)</td>
-					<td>Estimate: <?php echo sprintf("%.8f", $userRoundEstimate); ?> BTC</td>
-					<td>Balance: <?php echo $currentBalance; ?> BTC</td>					
+					<td>Estimate: <?php echo sprintf("%.8f", $userRoundEstimate); ?> LTC</td>
+					<td>Balance: <?php echo $currentBalance; ?> LTC</td>					
 				</tr>
 				<?php } else { ?>
 				<form action="/login.php" method="post" id="loginForm">

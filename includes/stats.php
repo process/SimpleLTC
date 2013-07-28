@@ -76,7 +76,7 @@ class Stats {
 			$result = mysql_query($sql);
 			if ($resultrow = mysql_fetch_array($result)) {
 				$currenthashrate = $resultrow[0];
-				$currenthashrate = round((($currenthashrate*4294967296)/590)/1000000, 0);
+				$currenthashrate = round((($currenthashrate*65536)/600)/1000, 0);
 				setCache("pool_hashrate", $currenthashrate, 300);
 				try {
 					$fileName = "/var/www/api/pool/speed";
@@ -198,7 +198,7 @@ class Stats {
 				  "GROUP BY username ";
 			$result = $read_only_db->query($sql);
 			while ($resultObj = $result->fetch()) {				
-				$uwa[$resultObj[1]] = round((($resultObj[0]*4294967296)/590)/1000000, 0);
+				$uwa[$resultObj[1]] = round((($resultObj[0]*65536)/600)/1000, 0);
 			}
 			if (count($uwa) > 0) 
 				setCache("worker_hashrates", $uwa, 600);					
@@ -227,7 +227,7 @@ class Stats {
 				  "ORDER BY hashrate DESC";
 			$result = $read_only_db->query($sql);
 			while ($resultObj = $result->fetch()) {				
-				$uwa[$resultObj[1]] = round((($resultObj[0]*4294967296)/590)/1000000, 0);
+				$uwa[$resultObj[1]] = round((($resultObj[0]*65536)/600)/1000, 0);
 			}
 			if (count($uwa) > 0) 
 				setCache("user_hashrates", $uwa, 600);					
@@ -422,10 +422,14 @@ class Stats {
 		if (!($last = getCache("mtgox_last"))) {
 			include('includes/mtgox.php');
 			try {
-				$mtgox = new mtgox("", "");
+				$url = "https://btc-e.com/api/2/ltc_usd/ticker";
+				$ticker = file_get_contents($url);
+				$data = json_decode($ticker);
+				$last = floatval($data->{"ticker"}->{"last"});
+				/*$mtgox = new mtgox("", "");
 				$ticker = $mtgox->ticker();
 				if (intval($ticker['last']) > 0) 
-					$last = round(floatval($ticker['last']),2);
+					$last = round(floatval($ticker['last']),2);*/
 			} catch (Exception $e) { }		
 			setCache("mtgox_last", $last, 1800);
 		}

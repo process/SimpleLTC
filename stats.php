@@ -37,7 +37,7 @@ $difficulty = $bitcoinDifficulty;
 // hashrate is in Mhash/s
 function CalculateTimePerBlock($btc_difficulty, $_hashrate){
 	if ($btc_difficulty > 0 && $_hashrate > 0) {
-		$find_time_hours = ((($btc_difficulty * bcpow(2,32)) / ($_hashrate * bcpow(10,6))) / 3600);
+		$find_time_hours = ((($btc_difficulty * bcpow(2,32)) / ($_hashrate * bcpow(10,3))) / 3600);
 	} else {
 		$find_time_hours = 0;
 	}
@@ -63,7 +63,7 @@ if (!$cookieValid){
 <div id="stats_members">
 	<table class="stats_table member_width">
 		<tr><th colspan="4" scope="col">Top <?php echo $numberResults;?> Hashrates</th></tr>
-		<tr><th scope="col">Rank</th><th scope="col">User Name</th><th scope="col">MH/s</th><th scope="col">BTC/Day</th></tr>
+		<tr><th scope="col">Rank</th><th scope="col">User Name</th><th scope="col">KH/s</th><th scope="col">LTC/Day</th></tr>
 <?php
 
 // TOP 30 CURRENT HASHRATES  *************************************************************************************************************************

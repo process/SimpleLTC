@@ -24,7 +24,7 @@ $rpcType = "http"; // http or https
 $rpcUsername = "pool"; // username
 $rpcPassword = "pass"; // password
 $rpcHost = "localhost";
-$rpcPort = 8332;
+$rpcPort = 9332;
 
 
 //Login to Mysql with the following
@@ -55,7 +55,7 @@ include("bitcoinController/bitcoin.inc.php");
 //Setup Memcached 
 global $memcache;
 $memcache = new Memcached();
-$memcache->addServer("localhost",11212);
+$memcache->addServer("localhost",11211);
 
 //Encrypt settings
 $salt = "123483jd7Dg6h5s92k"; //Just type a random series of numbers and letters; set it to anything or any length you want. "You can never have enough salt."

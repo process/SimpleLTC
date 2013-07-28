@@ -22,7 +22,7 @@ else
 	// SHOW USER TOTAL PAID  *************************************************************************************************************************
 
 	echo "<table class=\"money_table server_width\">";
-	echo "<tr><th scope=\"col\" colspan=\"2\">Total BTC Earned</th></tr><tr class=\"moneyheader\"><td class=\"bitcoin_image\"><img class=\"earned_coin\" src=\"/images/bitcoin.png\" /></td><td class=\"bitcoins\">";
+	echo "<tr><th scope=\"col\" colspan=\"2\">Total LTC Earned</th></tr><tr class=\"moneyheader\"><td class=\"bitcoins\">";
 
 	$result = mysql_query_cache("SELECT paid + balance as amount_earned  FROM accountBalance WHERE userid = $userInfo->id");
 	if ($resultrow = $result[0]) {

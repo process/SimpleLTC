@@ -37,7 +37,7 @@ lock("shares");
 	$block = new Block();
 	
 	//Get current block number
-	$currentBlockNumber = $bitcoinController->getblocknumber();
+	$currentBlockNumber = $bitcoinController->query("getblockcount");
 	$lastBlockNumber = $currentBlockNumber - 1;
 	
 	//Get latest block in database
